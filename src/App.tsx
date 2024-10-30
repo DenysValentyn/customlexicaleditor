@@ -15,7 +15,7 @@ import "@nitrolab/lexical-playground/theme.css";
 
 const toolbarConfig: EditorProps["toolbarConfig"] = {
   textColorPicker: false,
-  bgColorPicker: false,
+  bgColorPicker: true,
   fontFamilyOptions: [
     ["Roboto", "Roboto"],
     ["Open Sans", "Open Sans"],
@@ -25,31 +25,6 @@ const toolbarConfig: EditorProps["toolbarConfig"] = {
 function MyEditor(): JSX.Element {
   return <Editor toolbarConfig={toolbarConfig} isRichText />;
 }
-
-function PlaygroundApp(): JSX.Element {
-  return (
-    <EditorComposer>
-      <MyEditor />
-    </EditorComposer>
-  );
-}
-
-import ExampleTheme from "./ExampleTheme";
-import ToolbarPlugin from "./plugins/ToolbarPlugin";
-import TreeViewPlugin from "./plugins/TreeViewPlugin";
-
-const placeholder = "Enter some rich text...";
-
-const editorConfig = {
-  namespace: "React.js Demo",
-  nodes: [],
-  // Handling of errors during update
-  onError(error: Error) {
-    throw error;
-  },
-  // The editor theme
-  theme: ExampleTheme,
-};
 
 export default function App() {
   return (
